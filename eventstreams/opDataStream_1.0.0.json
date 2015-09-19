@@ -1,0 +1,28 @@
+{
+  "name": "opDataStream",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "payloadData": [
+    {
+      "name": "id",
+      "type": "LONG"
+    },
+    {
+      "name": "ts",
+      "type": "LONG"
+    },
+    {
+      "name": "property",
+      "type": "INT"
+    },
+    {
+      "name": "plug_id",
+      "type": "STRING"
+    },
+    {
+      "name": "household_id",
+      "type": "STRING"
+    }
+  ]
+}
