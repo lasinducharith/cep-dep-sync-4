@@ -1,5 +1,7 @@
 -- Unique Execution Plan Name
 @Plan:name( 'passthruExPlan' )
+@Plan:dist(receiverParallelism='4')
+@Plan:dist(publisherParallelism='4')
 
 -- Define Streams
 @Plan:trace('false')
@@ -8,8 +10,9 @@
 define stream smartPlugDataStream ( meta_type string, id long, ts long, value float, property int, plug_id string, household_id string, house_id string );
 
 @Export( 'opDataStream:1.0.0' )
-define stream houseBasedLoadPredictionStream (id long, ts long, property int, plug_id string, household_id string);
+define stream opDataStream (id long, ts long, property int, plug_id string, household_id string);
 
+@dist(parallel='8', execGroup='1')
 from smartPlugDataStream
 select id, ts, property, plug_id, household_id
 insert into opDataStream ;
